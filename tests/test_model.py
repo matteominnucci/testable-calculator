@@ -78,4 +78,12 @@ class TestComplexExpression (unittest.TestCase):
         self.calculator.digit(2)
         self.calculator.close_parentheses()
         self.assertEqual("1 + sqrt(11-2)", self.calculator.expression)
-        self.assertEqual(4, self.calculator.compute_result())
+        self.assertEqual(4.0, self.calculator.compute_result())
+        
+    def test_usage_of_power(self):
+        #2**3 = 8
+        self.calculator.digit(2)
+        self.calculator.power() #adding "**"" to the expression
+        self.calculator.digit(3)
+        self.assertEqual("2**3", self.calculator.expression)
+        self.assertEqual(8, self.calculator.compute_result())
