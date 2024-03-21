@@ -10,7 +10,7 @@ class CalculatorGUITestCase(unittest.TestCase):
 
     def press_button(self, button_text):
         self.app.find_button_by(button_text).trigger_action()
-        #actually pressing the button
+        #finding the button and actually pressing it
 
     def assert_display(self, value):
         self.assertEqual(self.app.display.text, value)   
