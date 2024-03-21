@@ -55,12 +55,27 @@ class TestComplexExpression (unittest.TestCase):
         self.calculator = Calculator()
     
     def test_expression_with_parentheses(self):
-        self.calculator.open_parentheses()
+        #(1+2)*3 = 9
+        self.calculator.open_parentheses() #append "(" to the expression
         self.calculator.digit(1)
         self.calculator.plus()
         self.calculator.digit(2)
-        self.calculator.close_parentheses()
+        self.calculator.close_parentheses() #append ")" to the expression
         self.calculator.multiply()
         self.calculator.digit(3)
         self.assertEqual("(1+2)*3", self.calculator.expression)
         self.assertEqual(9, self.calculator.compute_result())
+    
+    def test_usage_of_square_root(self):
+        #1 + sqrt(11-2) = 4
+        self.calculator.digit(1)
+        self.calculator.plus()
+        self.calculator.square_root() 
+        self.calculator.open_parentheses()
+        self.calculator.digit(1)
+        self.calculator.digit(1)
+        self.calculator.minus()
+        self.calculator.digit(2)
+        self.calculator.close_parentheses()
+        self.assertEqual("1 + sqrt(11-2)", self.calculator.expression)
+        self.assertEqual(4, self.calculator.compute_result())
