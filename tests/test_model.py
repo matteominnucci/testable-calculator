@@ -67,7 +67,7 @@ class TestComplexExpression (unittest.TestCase):
         self.assertEqual(9, self.calculator.compute_result())
     
     def test_usage_of_square_root(self):
-        #1 + sqrt(11-2) = 4
+        #1+sqrt(11-2) = 4
         self.calculator.digit(1)
         self.calculator.plus()
         self.calculator.square_root() 
@@ -77,7 +77,7 @@ class TestComplexExpression (unittest.TestCase):
         self.calculator.minus()
         self.calculator.digit(2)
         self.calculator.close_parentheses()
-        self.assertEqual("1 + sqrt(11-2)", self.calculator.expression)
+        self.assertEqual("1+sqrt(11-2)", self.calculator.expression)
         self.assertEqual(4.0, self.calculator.compute_result())
         
     def test_usage_of_power(self):
