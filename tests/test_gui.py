@@ -39,6 +39,36 @@ class TestExpressions(CalculatorGUITestCase):
         self.assert_display("1.2+2")
         self.press_button("=")
         self.assert_display("3.2")
+        
+class TextComplexExpressions(CalculatorGUITestCase):
+    def test_gui_have_parenthesis_buttons(self):
+        self.press_button("(")
+        self.press_button(")")
+        
+    def test_gui_have_sqrt_and_power_buttons(self):
+        self.press_button("√") #square root
+        self.press_button("^") #power
+    
+    def test_gui_supports_complex_expressions(self):
+      # sqrt(11-2)*(2^2)=12
+        self.press_button("√")
+        self.assert_display("sqrt")
+        self.press_button("(")
+        self.press_button("1")
+        self.press_button("1")
+        self.press_button("-")
+        self.press_button("2")
+        self.press_button(")")
+        self.assert_display("sqrt(11-2)")
+        self.press_button("*")
+        self.press_button("(")
+        self.press_button("2")
+        self.press_button("^")
+        self.press_button("2")
+        self.press_button(")")
+        self.assert_display("sqrt(11-2)*(2**2)")
+        self.press_button("=")
+        self.assert_display("12.0")
 
 class TestLayout(CalculatorGUITestCase):
     
