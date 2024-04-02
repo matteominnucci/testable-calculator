@@ -28,7 +28,10 @@ class TestCalculatorMethods(unittest.TestCase):
     def test_divide(self):
         self.calculator.divide()
         self.assertEqual("/", self.calculator.expression)
-
+    
+    def test_clear(self):
+        self.calculator.clear()
+        self.assertEqual("", self.calculator.expression)
 
 class TestCalculatorUsage(unittest.TestCase):
     def setUp(self):
