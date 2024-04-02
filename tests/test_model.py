@@ -30,6 +30,7 @@ class TestCalculatorMethods(unittest.TestCase):
         self.assertEqual("/", self.calculator.expression)
     
     def test_clear(self):
+        self.calculator.expression = "1+2+3"
         self.calculator.clear()
         self.assertEqual("", self.calculator.expression)
 

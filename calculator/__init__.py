@@ -1,5 +1,5 @@
 Number = int | float
-
+#the number could be an integer or a float
 class Calculator:
 
     def __init__(self):
@@ -9,7 +9,7 @@ class Calculator:
         if isinstance(value, str):
             value = int(value)
         if value not in range(10):
-            raise ValueError("Value must a digit in [0, 9]: " + value)
+            raise ValueError("Value must a digit in [0, 9]: " + str(value))
         return value
 
     def _append(self, value):
@@ -53,7 +53,8 @@ class Calculator:
         try:
             from math import sqrt
             result = eval(self.expression)
-            if isinstance(result, Number):
+            if isinstance(result, int) or isinstance(result, float):
+                #more precise result, previous version won't work with previous versions of Python
                 self.expression = str(result)
                 return result
             else:
